@@ -2,9 +2,11 @@ import {createContext, ReactNode, useState} from "react";
 
 
 const useGameWrapper = createContext<{
-    fstPlrProg: number
+    fstPlrProg: number,
+    setMuseState: any
 }>({
-    fstPlrProg: 50
+    fstPlrProg: 50,
+    setMuseState: {}
 });
 
 export const GameWrapper = ({
@@ -14,13 +16,14 @@ export const GameWrapper = ({
 }) => {
 
     const [fstPlrProg, setFstPlrProg] = useState<number>(50);
+    const [museState, setMuseState] = useState<any>({});
 
     setTimeout(() => setFstPlrProg(prev => prev + (Math.random() * 5) - 2.5), 1000)
 
     return (
         <useGameWrapper.Provider
             value={{
-                fstPlrProg
+                fstPlrProg, setMuseState
             }}
         >
             {children}
