@@ -1,8 +1,11 @@
-import Game from "./Game";
+import Game from "./components/Game";
+import {GameWrapper} from "./context/useGameWrapper";
 
 function App() {
     return (
-        <Game/>
+        <GameWrapper>
+            <Game/>
+        </GameWrapper>
     );
 }
 
