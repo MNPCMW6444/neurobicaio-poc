@@ -92,6 +92,16 @@ const Muse = () => {
     return <>
         <button onClick={() => connectToDevice(1).catch((e) => console.log(e))}>connect 1</button>
         <button onClick={() => connectToDevice(2).catch((e) => console.log(e))}>connect 2</button>
+        <p>
+            {`{ data: [Number, Number, Number, Number], 
+                timestamp: Date,
+                info?: {
+                    samplingRate?: Number,
+                    channelNames?: [String, String, String, String],
+                ..}
+              }`}
+
+        </p>
     </>
 };
 
