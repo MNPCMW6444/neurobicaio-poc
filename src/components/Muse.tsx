@@ -13,6 +13,9 @@ const Muse = () => {
         await muse.connect();
         await muse.start();
 
+        muse.enablePpg = true;
+
+
         muse.ppgReadings.subscribe(x => console.log(x))
 
         /* setMuseState((prevState: any) => ({
