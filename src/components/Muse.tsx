@@ -16,7 +16,9 @@ const Muse = () => {
         muse.enablePpg = true;
 
 
-        muse.ppgReadings.subscribe(x => console.log(x))
+        console.log("newyoad works:")
+
+        muse.ppgReadings.subscribe(x => console.log("newyoad " + x))
 
         /* setMuseState((prevState: any) => ({
              ...prevState,
