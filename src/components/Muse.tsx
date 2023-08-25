@@ -82,7 +82,30 @@ const Muse = () => {
             epoch({duration: 256, interval: 100}) as any,
             fft({bins: 256}) as any,
             powerByBand(frequencyBands) as any
-        ).subscribe(x => console.log(x));
+        ).subscribe((x: any) => {
+
+            let score = 5;
+            try {
+                const keys = Object.keys(x);
+                const values = Object.keys(x).map(
+                    (key: string) => (3 * x[key][0] + 7 * x[key][1]) / 20
+                );
+                let yoadedObject: any = {};
+                values.forEach((value, i) => {
+                    yoadedObject[keys[i] as any] = value;
+                });
+                score =
+                    100 -
+                    (3 * yoadedObject.THETA +
+                        2 * yoadedObject.ALPHA_LOW +
+                        yoadedObject.ALPHA_HIGH) *
+                    4;
+            } catch (e) {
+            }
+            console.log(Math.floor(score < 5 ? 5 : score > 100 ? 100 : score));
+
+
+        });
 
 
         /* setMuseState((prevState: any) => ({
