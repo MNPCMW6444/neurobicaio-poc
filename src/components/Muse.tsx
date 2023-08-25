@@ -76,10 +76,12 @@ const Muse = () => {
 
         frequencyBands &&
         muse.eegReadings.pipe(
-            /*
-             epoch({duration: 256, interval: 100}) as any,
-             fft({bins: 256}) as any,
-             powerByBand(frequencyBands) as any*/
+            map(({samples, timestamp}) => ({
+                timestamp, data: samples
+            })) as any,
+            epoch({duration: 256, interval: 100}) as any,
+            fft({bins: 256}) as any,
+            powerByBand(frequencyBands) as any
         ).subscribe(x => console.log(x));
 
 
