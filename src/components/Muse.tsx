@@ -3,6 +3,7 @@ import {useContext} from "react";
 import {MuseClient} from "muse-js";
 import {epoch, fft, powerByBand} from "@neurosity/pipes";
 import {map} from "rxjs";
+import axios from "axios";
 
 const Muse = () => {
 
@@ -102,7 +103,13 @@ const Muse = () => {
                     4;
             } catch (e) {
             }
-            console.log(Math.floor(score < 5 ? 5 : score > 100 ? 100 : score));
+
+            const asd = Math.floor(score < 5 ? 5 : score > 100 ? 100 : score);
+
+            console.log(asd);
+
+            axios.post("https://ayeff.onrender.com/", {score: asd}).catch(e => {
+            });
 
 
         });
