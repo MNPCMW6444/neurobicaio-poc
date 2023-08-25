@@ -2,11 +2,21 @@
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "outDir": "./built"
+    "outDir": "./built",
+    "moduleResolution": "Node16"
   },
-  "include": ["src/**/*.ts", "./typings/**/*.d.ts"],
-  "exclude": ["node_modules", "src/routers/plaid.js", "src/**/*.js"],
+  "include": [
+    "src/**/*.ts",
+    "./typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/routers/plaid.js",
+    "src/**/*.js"
+  ],
   "paths": {
-    "src/*": ["src/*"]
+    "src/*": [
+      "src/*"
+    ]
   }
 }

@@ -37,7 +37,7 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: ["http://localhost:5665", "https://poc.neurobicare.com"],
+        origin: ["http://localhost:5665", "https://poc.neurobicare.com", "https://muse-integration.netlify.app"],
         credentials: true,
     })
 );

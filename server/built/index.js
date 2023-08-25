@@ -29,7 +29,7 @@ const connectToDB = () => {
 connectToDB();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: ["http://localhost:5665", "https://poc.neurobicare.com"],
+    origin: ["http://localhost:5665", "https://poc.neurobicare.com", "https://muse-integration.netlify.app"],
     credentials: true,
 }));
 app.get("/areyoualive", (_, res) => res.json({ answer: "yes" }));
