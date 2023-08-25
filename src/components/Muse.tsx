@@ -1,6 +1,7 @@
 import useGameWrapper from "../context/useGameWrapper";
 import {useContext} from "react";
 import {MuseClient} from "muse-js";
+import {epoch, fft, powerByBand} from "@neurosity/pipes";
 
 const Muse = () => {
 
@@ -14,8 +15,11 @@ const Muse = () => {
         await muse.start();
 
 
-        muse.eegReadings.subscribe(reading => {
-            console.log(reading);
+        muse.eegReadings.pipe(
+            epoch({duration: 256, interval: 100}),
+            fft({bins: 256}),
+            powerByBand(frequencyBands)
+        ).subscribe(reading => {
         });
 
         /* setMuseState((prevState: any) => ({
