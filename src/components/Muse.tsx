@@ -13,12 +13,10 @@ const Muse = () => {
         await muse.connect();
         await muse.start();
 
-        muse.enablePpg = true;
 
-
-        console.log("newyoad works:")
-
-        muse.ppgReadings.subscribe(x => console.log("newyoad " + x))
+        muse.eegReadings.subscribe(reading => {
+            console.log(reading);
+        });
 
         /* setMuseState((prevState: any) => ({
              ...prevState,
