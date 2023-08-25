@@ -2,6 +2,7 @@ import useGameWrapper from "../context/useGameWrapper";
 import {useContext} from "react";
 import {MuseClient} from "muse-js";
 import {epoch, fft, powerByBand} from "@neurosity/pipes";
+import {map} from "rxjs";
 
 const Muse = () => {
 
@@ -72,8 +73,10 @@ const Muse = () => {
             ];
         });
 
+
         frequencyBands &&
         muse.eegReadings.pipe(
+            map((xy: any) => xy.samples) as any,
             epoch({duration: 256, interval: 100}) as any,
             fft({bins: 256}) as any,
             powerByBand(frequencyBands) as any
