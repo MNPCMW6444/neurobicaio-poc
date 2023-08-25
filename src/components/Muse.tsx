@@ -16,9 +16,8 @@ const Muse = () => {
 
 
         muse.eegReadings.pipe(
-            epoch({duration: 256, interval: 100}),
-            fft({bins: 256}),
-            powerByBand(frequencyBands)
+            epoch({duration: 256, interval: 100,}) as any,
+            fft({bins: 256}) as any,
         ).subscribe(reading => {
         });
 
