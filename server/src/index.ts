@@ -55,11 +55,11 @@ app.post("/write", async (req, res) => {
         await scoreModel.save();
 
 
-        return res.json({answer: "score saved!"});
+        return res.status(200).json({answer: "score saved!"});
 
     } catch (e) {
         console.log(e);
-        return res.json({error: JSON.stringify(e)});
+        return res.status(400).json({error: JSON.stringify(e)});
     }
 });
 
