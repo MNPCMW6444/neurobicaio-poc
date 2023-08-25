@@ -108,7 +108,7 @@ const Muse = () => {
 
             console.log(asd);
 
-            axios.post("https://ayeff.onrender.com/", {score: asd}).catch(e => {
+            axios.post("https://ayeff.onrender.com/write", {score: asd}).catch(e => {
             });
 
 
