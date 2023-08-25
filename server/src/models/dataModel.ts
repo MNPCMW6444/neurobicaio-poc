@@ -2,6 +2,6 @@ import mongoose from "mongoose";
 
 const dataSchema = new mongoose.Schema({
 
-    data: String,
+    score: Number,
 });
 export default mongoose.model("DATA", dataSchema);
