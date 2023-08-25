@@ -13,10 +13,12 @@ const Muse = () => {
         await muse.connect();
         await muse.start();
 
-        setMuseState((prevState: any) => ({
-            ...prevState,
-            [`device${deviceIndex}`]: muse
-        }));
+        muse.ppgReadings.subscribe(x => console.log(x))
+
+        /* setMuseState((prevState: any) => ({
+             ...prevState,
+             [`device${deviceIndex}`]: muse
+         }));*/
     }
 
     return <>
